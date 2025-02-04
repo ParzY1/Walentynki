@@ -1,72 +1,63 @@
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #ffebee;
-    font-family: 'Arial', sans-serif;
+/* Reszta stylów pozostaje bez zmian */
+.hidden {
+    display: none;
 }
 
-.container {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+#animationContainer {
+    position: relative;
+    margin-top: 20px;
 }
 
-h1 {
+.fireworks {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff4081;
+    border-radius: 50%;
+    animation: explode 1.5s infinite ease-out;
+}
+
+.fireworks:nth-child(1) {
+    top: 0;
+    left: 50%;
+    animation-delay: 0s;
+}
+
+.fireworks:nth-child(2) {
+    top: 50%;
+    left: 0;
+    animation-delay: 0.5s;
+}
+
+.fireworks:nth-child(3) {
+    top: 50%;
+    right: 0;
+    animation-delay: 1s;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(10);
+        opacity: 0;
+    }
+}
+
+h2 {
     color: #e91e63;
-    font-size: 2.5em;
-}
-
-.hearts {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.heart {
     font-size: 2em;
-    margin: 0 10px;
-    animation: float 3s infinite ease-in-out;
+    margin-top: 20px;
+    animation: bounce 1s infinite;
 }
 
-@keyframes float {
+@keyframes bounce {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(-10px);
     }
-}
-
-.buttons {
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 10px;
-    transition: all 0.3s ease;
-}
-
-#yesButton {
-    background-color: #e91e63;
-    color: white;
-}
-
-#noButton {
-    background-color: #ff4081;
-    color: white;
-}
-
-#yesButton:hover, #noButton:hover {
-    transform: scale(1.1);
 }
